@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
     description = "Fastest(?) disk usage cli, similar to windirstat";
     homepage = "https://github.com/scullionw/dirstat-rs";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ alanpearce ];
+    maintainers = with lib.maintainers; [ alinnow ];
     mainProgram = "dirstat-rs";
   };
 }

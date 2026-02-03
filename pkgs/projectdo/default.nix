@@ -52,7 +52,7 @@ stdenv.mkDerivation rec {
     description = "Context-aware single-letter project commands to speed up your terminal workflow";
     homepage = "https://github.com/paldepind/projectdo";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [ alanpearce ];
+    maintainers = with lib.maintainers; [ alinnow ];
     mainProgram = "projectdo";
     platforms = lib.platforms.all;
   };
