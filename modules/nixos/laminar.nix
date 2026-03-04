@@ -160,6 +160,7 @@ in
           User = cfg.user;
           Group = cfg.group;
           ExecStart = "${cfg.package}/bin/laminard -v";
+          Restart = "on-failure";
           RuntimeDirectory = "laminar";
           EnvironmentFile = pkgs.writeText "laminar.conf" ''
             LAMINAR_HOME=${cfg.homeDir}
