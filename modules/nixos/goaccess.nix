@@ -257,7 +257,7 @@ in
 
             serviceConfig = {
               Type = if realTime then "simple" else "oneshot";
-              ExecStart = "${cfg.package}/bin/goaccess --config-file=${configFile}";
+              ExecStart = "${cfg.package}/bin/goaccess --no-parsing-spinner --config-file=${configFile}";
               ExecStartPre =
                 "+"
                 + pkgs.writeShellScript "goaccess-${name}-prep" ''
