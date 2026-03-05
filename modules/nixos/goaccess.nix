@@ -253,7 +253,7 @@ in
           in
           lib.nameValuePair (instanceName name) {
             description = "GoAccess Web Log Analyzer (${name})";
-            wantedBy = [ "multi-user.target" ];
+            wantedBy = if realTime then [ "multi-user.target" ] else [ "timers.target" ];
 
             serviceConfig = {
               Type = if realTime then "simple" else "oneshot";
