@@ -14,7 +14,6 @@
       { ... }:
       {
         imports = [
-          inputs.flake-parts.flakeModules.modules
           inputs.files.flakeModules.default
           inputs.git-hooks.flakeModule
         ];
@@ -120,9 +119,9 @@
                     ${concatStringsSep "\n" plist}
                     ## Modules
                     ### NixOS
-                    ${concatStringsSep "\n" (mkModuleList self.outputs.modules.nixos)}
+                    ${concatStringsSep "\n" (mkModuleList self.outputs.nixosModules)}
                     ### Darwin
-                    ${concatStringsSep "\n" (mkModuleList self.outputs.modules.darwin)}
+                    ${concatStringsSep "\n" (mkModuleList self.outputs.darwinModules)}
                   '';
               }
             ];
@@ -132,15 +131,13 @@
             default = import ./overlay.nix;
           };
 
-          modules = {
-            nixos = {
-              goaccess = ./modules/nixos/goaccess.nix;
-              laminar = ./modules/nixos/laminar.nix;
-              git-pr = ./modules/nixos/git-pr.nix;
-            };
-            darwin = {
-              caddy = ./modules/darwin/caddy;
-            };
+          nixosModules = {
+            goaccess = ./modules/nixos/goaccess.nix;
+            laminar = ./modules/nixos/laminar.nix;
+            git-pr = ./modules/nixos/git-pr.nix;
+          };
+          darwinModules = {
+            caddy = ./modules/darwin/caddy;
           };
         };
       }
