@@ -134,6 +134,7 @@
 
           modules = {
             nixos = {
+              goaccess = ./modules/nixos/goaccess.nix;
               laminar = ./modules/nixos/laminar.nix;
               git-pr = ./modules/nixos/git-pr.nix;
             };

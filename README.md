@@ -17,6 +17,8 @@
 ### NixOS
 - git-pr
 
+- goaccess
+
 - laminar
 
 ### Darwin
