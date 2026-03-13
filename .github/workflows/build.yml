@@ -15,7 +15,7 @@ jobs:
           key: ${{ secrets.SSH_KEY_NIXREMOTE }}
           name: id_ed25519
           known_hosts: |
-            linde.alin.ovh ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHdh3J7dEmh9G+CVmzFEC8/ont35ZXpCFcpLUO863vC
+            binarycache.alin.ovh ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINU03etY1me+35aJ7DTJID60cHlvYx6lV8A6V+OiR7hr
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install Nix
@@ -36,4 +36,4 @@ jobs:
       - name: Build nix packages
         run: nix shell -f '<nixpkgs>' nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
       - name: Populate binary cache
-        run: nix copy --substitute-on-destination --to ssh://nixremote@linde.alin.ovh .
+        run: nix copy --substitute-on-destination --to ssh://nixremote@binarycache.alin.ovh .
