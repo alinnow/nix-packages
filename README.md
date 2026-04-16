@@ -8,6 +8,11 @@
 - Homepage: https://github.com/scullionw/dirstat-rs
 - Description: Fastest(?) disk usage cli, similar to windirstat
 
+### lunchy-go
+- Version: 0.2.1-unstable-2022-02-12
+- Homepage: https://github.com/sosedoff/lunchy-go
+- Description: A friendly wrapper for macOS launchctl.
+
 ### projectdo
 - Version: 1.0.0
 - Homepage: https://github.com/paldepind/projectdo
