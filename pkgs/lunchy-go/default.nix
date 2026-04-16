@@ -4,14 +4,14 @@
   fetchFromGitHub,
 }:
 
-buildGoModule (finalAttrs: {
+buildGoModule {
   pname = "lunchy-go";
   version = "0.2.1-unstable-2022-02-12";
 
   src = fetchFromGitHub {
     owner = "sosedoff";
     repo = "lunchy-go";
-    tag = finalAttrs.version;
+    rev = "756ad7892ca91763c9c1e70ff9c6570607843725";
     hash = "sha256-YEaYtUH2bOIJ9I4JXcFAydCx30l11N8gszr7UlnqbF0=";
   };
 
@@ -30,4 +30,4 @@ buildGoModule (finalAttrs: {
     maintainers = with lib.maintainers; [ alinnow ];
     mainProgram = "lunchy-go";
   };
-})
+}
