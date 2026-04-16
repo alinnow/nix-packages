@@ -41,7 +41,7 @@ in
         with types;
         attrsOf (
           submodule (
-            { config, name, ... }:
+            { name, ... }:
             {
               options = {
                 enable = lib.mkEnableOption "goaccess web log analyzer service";

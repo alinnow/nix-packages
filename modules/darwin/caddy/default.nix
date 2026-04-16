@@ -156,7 +156,7 @@ in
 
     adapter = mkOption {
       default =
-        if ((cfg.configFile != configFile) || (builtins.baseNameOf cfg.configFile) == "Caddyfile") then
+        if ((cfg.configFile != configFile) || (baseNameOf cfg.configFile) == "Caddyfile") then
           "caddyfile"
         else
           null;
@@ -331,12 +331,12 @@ in
 
     launchd.daemons.caddy =
       let
-        runOptions = ''--config ${configFile} ${
+        runOptions = "--config ${configFile} ${
           optionalString (cfg.adapter != null) "--adapter ${cfg.adapter}"
-        }'';
+        }";
       in
       {
-        command = ''${cfg.package}/bin/caddy run ${runOptions} ${optionalString cfg.resume "--resume"}'';
+        command = "${cfg.package}/bin/caddy run ${runOptions} ${optionalString cfg.resume "--resume"}";
         serviceConfig = {
           UserName = cfg.user;
           GroupName = cfg.group;
