@@ -18,4 +18,5 @@
 
   dirstat-rs = pkgs.callPackage ./pkgs/dirstat-rs { };
   projectdo = pkgs.callPackage ./pkgs/projectdo { };
+  lunchy-go = pkgs.callPackage ./pkgs/lunchy-go { };
 }
