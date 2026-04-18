@@ -16,7 +16,8 @@
   modules = import ./modules/nixos; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  dirstat-rs = pkgs.callPackage ./pkgs/dirstat-rs { };
-  projectdo = pkgs.callPackage ./pkgs/projectdo { };
-  lunchy-go = pkgs.callPackage ./pkgs/lunchy-go { };
+}
+// pkgs.lib.packagesFromDirectoryRecursive {
+  inherit (pkgs) callPackage;
+  directory = ./pkgs/by-directory;
 }
