@@ -45,7 +45,7 @@
             };
           in
           {
-            legacyPackages = (import ./default.nix { inherit pkgs; });
+            legacyPackages = (import ./pkgs { inherit pkgs; });
 
             packages = (
               lpkgs
