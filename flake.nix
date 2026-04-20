@@ -130,14 +130,9 @@
             default = import ./overlay.nix;
           };
 
-          nixosModules = {
-            goaccess = ./modules/nixos/goaccess.nix;
-            laminar = ./modules/nixos/laminar.nix;
-            git-pr = ./modules/nixos/git-pr.nix;
-          };
-          darwinModules = {
-            caddy = ./modules/darwin/caddy;
-          };
+          nixosModules = import ./modules/nixos;
+          darwinModules = import ./modules/darwin;
+          homeModules = import ./modules/home;
         };
       }
     );
