@@ -37,7 +37,7 @@
           let
             inherit pkgs;
 
-            lpkgs = lib.filterAttrs (_: v: lib.isDerivation v) self'.legacyPackages;
+            lpkgs = self'.legacyPackages;
 
             all = pkgs.symlinkJoin {
               name = "all";
