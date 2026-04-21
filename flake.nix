@@ -61,6 +61,7 @@
               packages = [
                 config.files.writer.drv
                 config.pre-commit.settings.package
+                pkgs.update-nix-fetchgit
               ]
               ++ config.pre-commit.settings.enabledPackages;
 
