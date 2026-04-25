@@ -3,6 +3,11 @@
 **My personal [NUR](https://github.com/nix-community/NUR) repository**
 
 ## Packages
+### danube-cli
+- Version: 0.10.0
+- Homepage: https://github.com/AdrianSilaghi/danube-cli
+- Description: Deploy static sites to DanubeData from the terminal
+
 ### dirstat-rs
 - Version: 0.3.7
 - Homepage: https://github.com/scullionw/dirstat-rs
