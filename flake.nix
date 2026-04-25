@@ -57,7 +57,7 @@
 
             formatter = pkgs.nixfmt-tree;
 
-            devShells.default = pkgs.mkShell {
+            devShells.default = pkgs.mkShellNoCC {
               packages = [
                 config.files.writer.drv
                 config.pre-commit.settings.package
