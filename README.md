@@ -38,3 +38,5 @@
 
 ### Darwin
 
+### Home Manager
+

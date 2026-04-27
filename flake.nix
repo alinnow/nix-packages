@@ -122,6 +122,8 @@
                     ${concatStringsSep "\n" (mkModuleList self.outputs.nixosModules)}
                     ### Darwin
                     ${concatStringsSep "\n" (mkModuleList self.outputs.darwinModules)}
+                    ### Home Manager
+                    ${concatStringsSep "\n" (mkModuleList self.outputs.homeModules)}
                   '';
               }
             ];
