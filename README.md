@@ -37,5 +37,4 @@
 - laminar
 
 ### Darwin
-- caddy
 
