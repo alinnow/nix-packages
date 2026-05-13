@@ -25,6 +25,8 @@
 
 ## Modules
 ### NixOS
+- bark
+
 - git-pr
 
 - goaccess
