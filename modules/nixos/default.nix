@@ -1,7 +1,7 @@
 {
   # Add your NixOS modules here
   #
-  # my-module = ./my-module;
+  bark = ./bark.nix;
   laminar = ./laminar.nix;
   git-pr = ./git-pr.nix;
   goaccess = ./goaccess.nix;
