@@ -9,7 +9,7 @@
 - Description: Fastest(?) disk usage cli, similar to windirstat
 
 ### llama-cpp-cuda
-- Version: 8864
+- Version: 8983
 - Homepage: https://github.com/ggml-org/llama.cpp
 - Description: Inference of Meta's LLaMA model (and others) in pure C/C++
 
