@@ -226,6 +226,7 @@ in
         home = cfg.homeDir;
         createHome = true;
         isSystemUser = true;
+        packages = cfg.path;
       };
     };
 
