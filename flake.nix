@@ -4,7 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    files.url = "github:mightyiam/files";
+    files = {
+      url = "github:alinnow/files/fix-pipe";
+      flake = false;
+    };
     git-hooks.url = "github:cachix/git-hooks.nix";
   };
 
@@ -14,7 +17,7 @@
       { ... }:
       {
         imports = [
-          inputs.files.flakeModules.default
+          "${inputs.files}/flake-module.nix"
           inputs.git-hooks.flakeModule
         ];
 
