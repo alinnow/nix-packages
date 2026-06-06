@@ -92,44 +92,41 @@
               };
             };
 
-            files.files = [
-              {
-                path_ = "README.md";
-                drv =
-                  let
-                    inherit (lib) mapAttrsToList concatStringsSep;
-                    ps = lib.filterAttrs (k: v: (k != "all") && (lib.isDerivation v)) lpkgs;
+            files.file."README.md" = {
+              text =
+                let
+                  inherit (lib) mapAttrsToList concatStringsSep;
+                  ps = lib.filterAttrs (k: v: (k != "all") && (lib.isDerivation v)) lpkgs;
 
-                    plist = mapAttrsToList (name: p: ''
-                      ### ${name}
-                      - Version: ${p.version}
-                      - Homepage: ${p.meta.homepage}
-                      - Description: ${p.meta.description}
-                    '') ps;
+                  plist = mapAttrsToList (name: p: ''
+                    ### ${name}
+                    - Version: ${p.version}
+                    - Homepage: ${p.meta.homepage}
+                    - Description: ${p.meta.description}
+                  '') ps;
 
-                    mkModuleList = mapAttrsToList (
-                      mod: _: ''
-                        - ${mod}
-                      ''
-                    );
-                  in
-                  pkgs.writeText "README.md" ''
-                    # nix-packages
+                  mkModuleList = mapAttrsToList (
+                    mod: _: ''
+                      - ${mod}
+                    ''
+                  );
+                in
+                ''
+                  # nix-packages
 
-                    **My personal [NUR](https://github.com/nix-community/NUR) repository**
+                  **My personal [NUR](https://github.com/nix-community/NUR) repository**
 
-                    ## Packages
-                    ${concatStringsSep "\n" plist}
-                    ## Modules
-                    ### NixOS
-                    ${concatStringsSep "\n" (mkModuleList self.outputs.nixosModules)}
-                    ### Darwin
-                    ${concatStringsSep "\n" (mkModuleList self.outputs.darwinModules)}
-                    ### Home Manager
-                    ${concatStringsSep "\n" (mkModuleList self.outputs.homeModules)}
-                  '';
-              }
-            ];
+                  ## Packages
+                  ${concatStringsSep "\n" plist}
+                  ## Modules
+                  ### NixOS
+                  ${concatStringsSep "\n" (mkModuleList self.outputs.nixosModules)}
+                  ### Darwin
+                  ${concatStringsSep "\n" (mkModuleList self.outputs.darwinModules)}
+                  ### Home Manager
+                  ${concatStringsSep "\n" (mkModuleList self.outputs.homeModules)}
+                '';
+            };
           };
         flake = {
           overlays = {
