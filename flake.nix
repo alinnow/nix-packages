@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     files = {
-      url = "github:alinnow/files/fix-pipe";
+      url = "github:mightyiam/files";
       flake = false;
     };
     git-hooks.url = "github:cachix/git-hooks.nix";
