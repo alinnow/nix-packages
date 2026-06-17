@@ -161,8 +161,8 @@ in
                       };
 
                       port = lib.mkOption {
-                        type = types.port;
-                        default = 7890;
+                        type = with types; nullOr types.port;
+                        default = null;
                         description = "Port for the WebSocket server (real-time mode only)";
                       };
 
