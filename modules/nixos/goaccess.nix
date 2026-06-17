@@ -274,6 +274,11 @@ in
               NoNewPrivileges = true;
               PrivateTmp = true;
               ProtectSystem = "strict";
+              RestrictAddressFamilies = lib.optionals (instanceCfg.settings.real-time-html) [
+                "AF_INET"
+                "AF_INET6"
+                "AF_UNIX"
+              ];
               ProtectHome = true;
               ReadOnlyPaths = (lib.flatten instanceCfg.settings.log-file);
               ReadWritePaths = [
