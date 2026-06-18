@@ -268,7 +268,7 @@ in
               Restart = lib.mkIf realTime "on-failure";
               # Ensure directories exist and have correct permissions
               StateDirectory = "goaccess/${name}";
-              RuntimeDirectory = "goaccess";
+              RuntimeDirectory = "goaccess/${name}";
               RuntimeDirectoryMode = "750";
               # Security settings
               NoNewPrivileges = true;
