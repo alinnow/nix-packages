@@ -256,7 +256,6 @@ in
             wantedBy = if realTime then [ "multi-user.target" ] else [ "timers.target" ];
 
             serviceConfig = {
-              Type = if realTime then "simple" else "oneshot";
               ExecStart = "${cfg.package}/bin/goaccess --no-parsing-spinner --config-file=${configFile}";
               ExecStartPre =
                 "+"
@@ -274,17 +273,31 @@ in
               NoNewPrivileges = true;
               PrivateTmp = true;
               ProtectSystem = "strict";
-              RestrictAddressFamilies = lib.optionals (instanceCfg.settings.real-time-html) [
-                "AF_INET"
-                "AF_INET6"
-                "AF_UNIX"
-              ];
               ProtectHome = true;
               ReadOnlyPaths = (lib.flatten instanceCfg.settings.log-file);
               ReadWritePaths = [
                 ("-" + dirOf instanceCfg.settings.output)
               ];
-            };
+
+            }
+            // (
+              if realTime then
+                {
+                  Type = "simple";
+                  RestrictAddressFamilies = [
+                    "AF_INET"
+                    "AF_INET6"
+                    "AF_UNIX"
+                  ];
+                  Nice = lib.mkDefault "+5";
+                }
+              else
+                {
+                  Type = "oneshot";
+                  CPUSchedulingPolicy = lib.mkDefault "batch";
+                  Nice = lib.mkDefault "+10";
+                }
+            );
           }
         ) enabledInstances;
 
@@ -297,6 +310,7 @@ in
               OnCalendar = instanceCfg.dates;
               Persistent = true;
             };
+            unitConfig."X-OnlyManualStart" = true;
           })
         ) (lib.filterAttrs (_: icfg: icfg.dates != null) enabledInstances);
 
