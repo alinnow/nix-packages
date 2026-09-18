@@ -253,7 +253,7 @@ in
           in
           lib.nameValuePair (instanceName name) {
             description = "GoAccess Web Log Analyzer (${name})";
-            wantedBy = if realTime then [ "multi-user.target" ] else [ "timers.target" ];
+            wantedBy = if realTime then [ "multi-user.target" ] else [ ];
 
             serviceConfig = {
               ExecStart = "${cfg.package}/bin/goaccess --no-parsing-spinner --config-file=${configFile}";
