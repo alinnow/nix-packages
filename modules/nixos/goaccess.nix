@@ -290,12 +290,14 @@ in
                     "AF_UNIX"
                   ];
                   Nice = lib.mkDefault "+5";
+                  IOSchedulingPriority = lib.mkDefault 5;
                 }
               else
                 {
                   Type = "oneshot";
                   CPUSchedulingPolicy = lib.mkDefault "batch";
                   Nice = lib.mkDefault "+10";
+                  IOSchedulingPriority = lib.mkDefault 6;
                 }
             );
           }
