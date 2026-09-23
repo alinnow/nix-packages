@@ -3,11 +3,6 @@
   stdenv,
   fetchFromGitHub,
   ncurses,
-  nodejs,
-  bun,
-  pnpm,
-  yarn,
-  just,
   nix,
 }:
 stdenv.mkDerivation rec {
@@ -34,11 +29,6 @@ stdenv.mkDerivation rec {
   ];
 
   nativeCheckInputs = [
-    bun
-    nodejs
-    pnpm
-    yarn
-    just
     nix
   ];
 
