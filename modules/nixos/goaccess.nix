@@ -298,6 +298,7 @@ in
                   CPUSchedulingPolicy = lib.mkDefault "batch";
                   Nice = lib.mkDefault "+10";
                   IOSchedulingPriority = lib.mkDefault 6;
+                  RemainAfterExit = true; # Prevents the service from automatically starting on rebuild. See https://discourse.nixos.org/t/how-to-prevent-custom-systemd-service-from-restarting-on-nixos-rebuild-switch/43431
                 }
             );
           }
