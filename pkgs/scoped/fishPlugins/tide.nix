@@ -4,19 +4,22 @@
   fetchFromGitHub,
 }:
 
-tide.overrideAttrs (oldAttrs: rec {
-  version = "7.0.15";
+tide.overrideAttrs (
+  finalAttrs: oldAttrs: {
+    version = "7.2.0";
+    name = "${oldAttrs.pname}-${finalAttrs.version}";
 
-  src = fetchFromGitHub {
-    owner = "plttn";
-    repo = "tide";
-    tag = "v${version}";
-    hash = "sha256-m0hJUCwUze1skhwKWCHDLfXL+ZPucSDaSr0z59rKjpk=";
-  };
+    src = fetchFromGitHub {
+      owner = "plttn";
+      repo = "tide";
+      tag = "v${finalAttrs.version}";
+      hash = "sha256-93Q1hEfZ7wwUK1OGhLQMvngSItMOgZbBjnTN9sS2yiM=";
+    };
 
-  meta = oldAttrs // {
-    homepage = "https://github.com/plttn/tide";
-    changelog = "https://github.com/plttn/tide/blob/${src.rev}/CHANGELOG.md";
-    maintainers = with lib.maintainers; [ alinnow ];
-  };
-})
+    meta = oldAttrs // {
+      homepage = "https://github.com/plttn/tide";
+      changelog = "https://github.com/plttn/tide/blob/${finalAttrs.src.rev}/CHANGELOG.md";
+      maintainers = with lib.maintainers; [ alinnow ];
+    };
+  }
+)
