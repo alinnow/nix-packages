@@ -7,13 +7,13 @@
 
 hydro.overrideAttrs (
   finalAttrs: oldAttrs: {
-    version = "0-unstable-2026-10-23";
+    version = "0-unstable-2026-10-27";
 
     src = fetchFromGitHub {
       owner = "alinnow";
       repo = "hydro";
-      rev = "07dd02c5ce863c8f42d100a0a86a124294927e47";
-      hash = "sha256-TmLirxR1uuTY/ybsfhIKDXcZb+50ohoE6mqn0H8+R70=";
+      rev = "e465a8c4940d5b8af52bc0d080e0cf02d08ea8eb";
+      hash = "sha256-TEvzN1D0sXPx6fOIptv4YX1YZZCNOyjq9lPGaiAUb0I=";
     };
 
     passthru.updateScript = unstableGitUpdater { };
